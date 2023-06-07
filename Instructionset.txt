@@ -1,0 +1,103 @@
+Regs
+A, B, C, D, EP1, EP2, BA1, BA2
+
+Number Format
+
+Int
+1B +/-, 31B Number
+
+Float
+1B +/-, 8B Exponent, 23B Number 
+
+Memory Layout
+
+HHH0H000
+H0000111
+H1111122
+22222233
+H3333334
+4444444N
+
+Instruction layout
+
+Instruction, Config, Parameters
+1Byte,       1Byte,   0-4Bytes
+
+ALU instructions
+*add F infront for Floatingpoint andor a number for the format
+
+ADD
+ADC
+
+SUB
+SBC
+
+MLT
+MTC
+
+DIV
+DVC
+
+AND
+OR
+XOR
+
+Change instructions
+
+INC
+ICC
+
+DEC
+DCC
+
+SHR
+SHL
+
+ROR
+ROL
+
+NOT
+
+Memory Instructions
+
+MOV
+CPY
+SWP
+
+SLD
+LSD
+
+SD1
+SD2
+
+LHD
+WHD
+
+CHB
+INCB
+DECB
+
+Jump Instructions
+
+JMP
+JWB
+
+JIC
+JIZ
+JIO
+JER
+JNR
+JV1
+JV0
+
+IO Instructions
+
+SND
+CSD
+WRB
+CWB
+
+Interrupt Instructions
+
+SBI
+UBI
