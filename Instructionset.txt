@@ -1,13 +1,28 @@
 Regs
-A, B, C, D, EP1, EP2, BA1, BA2
+A, B, C, D, EP1, EP2, EP3, EP4
 
 Number Format
 
 Int
 1B +/-, 31B Number
 
+Int 24 (for colour)
+24B Number
+
+Int 16
+1B +/-, 15B Number
+
+Int 8
+1B +/-, 7B Number
+
 Float
 1B +/-, 8B Exponent, 23B Number 
+
+Float 16
+1B +/-, 6B Exponent, 11B Number
+
+Float 8
+1B +/-, 4B Exponent, 3B Number
 
 Memory Layout
 
@@ -21,83 +36,78 @@ H3333334
 Instruction layout
 
 Instruction, Config, Parameters
-1Byte,       1Byte,   0-4Bytes
+1Byte,       1Byte,   0-8Bytes
+
+Config
+Ir1, Ir2, Nf, Nf, Nf, Ca, Ca, Ca
+
+Ir1: is input 1 register
+Ir2: idt input 2 register
+Nf: Number Format
+Ca: Command specific arguments
 
 ALU instructions
 *add F infront for Floatingpoint andor a number for the format
 
-ADD
-ADC
+ADD add
+ADC add with cary
 
-SUB
-SBC
+SUB subtract
+SBC subtract with carry
 
-MLT
-MTC
+MLT multiply 
+MTC multiply with carry
 
-DIV
-DVC
+DIV divide
+DVC divide with carry
 
-AND
-OR
-XOR
+AND and
+OR  or
+XOR exclusive or
 
 Change instructions
 
-INC
-ICC
+INC increment
+ICC increment with carry
 
-DEC
-DCC
+DEC decrement
+DCC decrement with carry
 
-SHR
-SHL
+SHR shift right
+SHL shift left
 
-ROR
-ROL
+ROR rotate right
+ROL rotate left
 
-NOT
+NOT not
 
 Memory Instructions
 
-MOV
-CPY
-SWP
+MOV move
+CPY copy
+SWP swap
 
-SLD
-LSD
-
-SD1
-SD2
-
-LHD
-WHD
-
-CHB
-INCB
-DECB
+LHD load from hard memory
+WHD write to hard memory
 
 Jump Instructions
 
-JMP
-JWB
+JMP jump without condition
 
-JIC
-JIZ
-JIO
-JER
-JNR
-JV1
-JV0
+JIC jump if cary
+JIZ jump if zero
+JIO jump if overflow
+JIV jump if eaual to value
+JNV jump if not equal to value
+
+RET return to previous address
 
 IO Instructions
 
-SND
-CSD
-WRB
-CWB
+SND send value
+WRB write value
 
 Interrupt Instructions
 
-SBI
-UBI
+SBI set bus interrupt
+UBI unset bus interrupt
