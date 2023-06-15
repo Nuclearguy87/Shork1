@@ -16,13 +16,13 @@ int monitor(int * p_RAM)
     int numb = 0;
     scanf("%s",&chr,sizeof(chr));     
 
-    int i = 3;
+    int i = 4;
     int e = 1;
     while ((chr[i] >= 48 && chr[i] <= 57) || (chr[i] >= 65 && chr[i] <= 70)){
 	    numb += chr[i]-48;
-	    e *= 10;
-	    i++;
-	    printf(i);
+	    e = e * 10;
+	    i = i+1;
+	    printf("%d,%d",i,numb);
     }
     i = 0;
 
